@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Built Dirty / Builds — Project controls for subs & GCs</title>
+<meta name="description" content="Production-grade project controls, pay-app workbooks, and Power Query automation for electrical/mechanical subs and small GCs. Templates from $39, custom builds from $500.">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:title" content="Built Dirty / Builds">
+<meta property="og:description" content="Project controls and pay-app automation for construction subs and small GCs. Built by a PM who ran $100M+ in project controls.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://builtdirty.com/builds">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --surface: #141414;
+    --surface-2: #1a1a1a;
+    --border: #262626;
+    --border-strong: #3a3a3a;
+    --text: #f5f5f5;
+    --text-dim: #a3a3a3;
+    --muted: #6b6b6b;
+    --spark: #ff5722;
+    --spark-dim: rgba(255, 87, 34, 0.12);
+    --rule: #1f1f1f;
+  }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image:
+      linear-gradient(180deg, rgba(255, 87, 34, 0.04) 0%, transparent 32%),
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.012) 0px, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 4px);
+    min-height: 100vh;
+  }
+
+  ::selection { background: var(--spark); color: #000; }
+
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--rule);
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: var(--spark);
+    transform: rotate(45deg);
+  }
+  .nav-right {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .nav-link {
+    color: var(--text-dim);
+    text-decoration: none;
+    padding: 6px 10px;
+    border: 1px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .nav-link:hover { color: var(--spark); }
+  .nav-link.active {
+    color: var(--text);
+    border-color: var(--border);
+  }
+  .nav-sep { color: var(--rule); }
+
+  /* Hero */
+  .hero {
+    padding: 80px 0 64px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--spark);
+    padding: 6px 10px;
+    border: 1px solid var(--spark-dim);
+    background: var(--spark-dim);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+  .hero h1 .spark { color: var(--spark); }
+  .hero .lede {
+    font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+    color: var(--text-dim);
+    max-width: 640px;
+    line-height: 1.55;
+    margin-bottom: 36px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+  .hero-meta span::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--spark);
+    border-radius: 50%;
+  }
+
+  /* Sections */
+  section { padding: 72px 0; border-bottom: 1px solid var(--rule); }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--spark);
+    margin-bottom: 14px;
+  }
+  .section-label::before { content: '// '; opacity: 0.6; }
+
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .group-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .group-label:first-of-type { margin-top: 16px; }
+
+  /* Tier cards */
+  .tiers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .tier {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.15s ease;
+  }
+  .tier:hover { border-color: var(--border-strong); }
+  .tier.featured { border-color: var(--spark); position: relative; }
+  .tier.featured::before {
+    content: 'Best value';
+    position: absolute;
+    top: -10px;
+    left: 24px;
+    background: var(--spark);
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    font-weight: 700;
+  }
+  .tier-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .tier-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  .tier-price {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--spark);
+    white-space: nowrap;
+  }
+  .tier-desc { color: var(--text-dim); font-size: 0.95rem; line-height: 1.55; }
+  .tier-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border);
+  }
+
+  /* Why */
+  .why-body p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-dim);
+    margin-bottom: 18px;
+    max-width: 660px;
+  }
+  .why-body p:last-child { margin-bottom: 0; }
+  .why-body strong { color: var(--text); font-weight: 600; }
+
+  /* How */
+  .flows {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .flow {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--spark);
+    padding: 24px 28px;
+  }
+  .flow-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--spark);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .flow-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .flow-steps {
+    list-style: none;
+    counter-reset: fstep;
+    padding: 0;
+  }
+  .flow-steps li {
+    counter-increment: fstep;
+    padding: 6px 0 6px 28px;
+    position: relative;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+  }
+  .flow-steps li::before {
+    content: counter(fstep);
+    position: absolute;
+    left: 0;
+    top: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--spark);
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--spark-dim);
+    background: var(--spark-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* CTA */
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 36px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--spark);
+    color: #000;
+    border-color: var(--spark);
+  }
+  .btn-primary:hover { background: #ff7849; border-color: #ff7849; }
+  .btn-primary::after { content: ' →'; transition: transform 0.15s ease; }
+  .btn-primary:hover::after { transform: translateX(2px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+  .btn-ghost:hover { border-color: var(--spark); color: var(--spark); }
+
+  /* Cross-link */
+  .crosslink {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--spark);
+    padding: 24px 28px;
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .crosslink-text {
+    flex: 1;
+    min-width: 240px;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+  }
+  .crosslink-text strong { color: var(--text); font-family: 'Space Grotesk', sans-serif; font-weight: 600; }
+
+  /* Footer */
+  footer { padding: 56px 0 40px; color: var(--muted); font-size: 13px; }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+  .footer-block-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+  }
+  .footer-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.15s ease;
+  }
+  .footer-links a:hover { color: var(--spark); }
+  .footer-contact a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-strong);
+    transition: color 0.15s ease, border-color 0.15s ease;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+  }
+  .footer-contact a:hover { color: var(--spark); border-color: var(--spark); }
+  .disclaimer {
+    border-top: 1px solid var(--rule);
+    padding-top: 24px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 720px;
+  }
+  .copy {
+    margin-top: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+
+  @media (min-width: 720px) {
+    .tiers { grid-template-columns: 1fr 1fr; }
+    .tier.featured { grid-column: span 2; }
+    .flows { grid-template-columns: repeat(3, 1fr); }
+    .footer-grid { grid-template-columns: 2fr 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <nav>
+    <a href="/" class="brand">Built Dirty</a>
+    <div class="nav-right">
+      <a href="/apps" class="nav-link">Apps</a>
+      <span class="nav-sep">/</span>
+      <a href="/builds" class="nav-link active">Builds</a>
+      <a href="mailto:contact@builtdirty.com" class="nav-link">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <span class="tag">Builds · For subs & small GCs</span>
+    <h1>Stop running your shop<br>on <span class="spark">VLOOKUP</span> and prayer.</h1>
+    <p class="lede">Production-grade project controls, pay-app workbooks, and Power Query automation for electrical/mechanical subs and small GCs. Built by a PM who ran $100M+ in project controls and productized the kit on the way out.</p>
+    <div class="hero-meta">
+      <span>Subs &amp; GCs · $2M–$30M</span>
+      <span>Excel + Power Query native</span>
+      <span>No SaaS lock-in</span>
+    </div>
+    <div class="cta-row">
+      <a href="#what-you-get" class="btn btn-primary">See the kits</a>
+      <a href="mailto:contact@builtdirty.com?subject=Built%20Dirty%20Builds%20%E2%80%94%20discovery%20call" class="btn btn-ghost">Discovery call</a>
+    </div>
+  </header>
+
+  <section id="what-you-get">
+    <p class="section-label">What you get</p>
+    <h2>Templates, custom builds, retainers.</h2>
+
+    <p class="group-label">Templates · Productized, instant</p>
+    <div class="tiers">
+
+      <div class="tier featured">
+        <div class="tier-head">
+          <span class="tier-name">Construction PM Starter Kit</span>
+          <span class="tier-price">$199</span>
+        </div>
+        <p class="tier-desc">The full bundle. Production Tracker, Pay App Workbook (G702/G703), T&amp;M Cost Sheet + Aggregator, Commodity Progress Curves, Timesheet Aggregator, and BOM Takeoff Register. Everything below in one download, priced for the kit not the parts.</p>
+        <div class="tier-meta"><span>Instant download</span><span>1-page setup guide each</span><span>Loom walkthroughs</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">AIA G702/G703 Pay App Workbook</span>
+          <span class="tier-price">$79</span>
+        </div>
+        <p class="tier-desc">SOV → G703 schedule of values → G702 application for payment, wired together. Drop in your line items and the pay-app numbers populate. Stops the monthly billing scramble.</p>
+        <div class="tier-meta"><span>Instant</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Commodity Progress Curves</span>
+          <span class="tier-price">$69</span>
+        </div>
+        <p class="tier-desc">11-tab progress-curve workbook with a styled dashboard. Track installed quantities against plan, by commodity and area. The version actually used in project meetings, not a textbook example.</p>
+        <div class="tier-meta"><span>Instant</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">T&amp;M Daily Cost Sheet + Aggregator</span>
+          <span class="tier-price">$59</span>
+        </div>
+        <p class="tier-desc">Daily cost sheet on the field side, weekly aggregator on the office side. Built for T&amp;M and unit-rate work. Power Query rolls daily sheets into a clean billing register.</p>
+        <div class="tier-meta"><span>Instant</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Construction Production Tracker</span>
+          <span class="tier-price">$49</span>
+        </div>
+        <p class="tier-desc">Front-page summary + install log architecture. Track planned vs installed quantities at a granularity that survives an actual project. Built around the structure I ran on a $100M+ job.</p>
+        <div class="tier-meta"><span>Instant</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Timesheet Aggregator</span>
+          <span class="tier-price">$49</span>
+        </div>
+        <p class="tier-desc">Power Query workbook that pulls weekly crew timesheets from a folder, normalizes them, and outputs a labor register. Parameterized so it adapts to your company's timesheet format.</p>
+        <div class="tier-meta"><span>Instant</span><span>Power Query</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">BOM Takeoff Register</span>
+          <span class="tier-price">$39</span>
+        </div>
+        <p class="tier-desc">6-layer takeoff register structure. Material, labor, equipment, sub, indirect, and contingency. Built to roll up into bid pricing without losing the audit trail.</p>
+        <div class="tier-meta"><span>Instant</span></div>
+      </div>
+
+    </div>
+
+    <p class="group-label">Custom · Project-by-project, billed up front</p>
+    <div class="tiers">
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Full Project Controls Workbook</span>
+          <span class="tier-price">$2,000–$5,000</span>
+        </div>
+        <p class="tier-desc">Multi-tab register, Power Query pipelines, custom dashboard. Built around your contracts, your billing method, your reporting cadence. The kit your company would build internally if it had a controls department.</p>
+        <div class="tier-meta"><span>2–4 weeks</span><span>2 revisions</span><span>Walkthrough call</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Pay App System Setup</span>
+          <span class="tier-price">$1,500–$3,000</span>
+        </div>
+        <p class="tier-desc">SOV → G703 → G702 pipeline configured for your company. Line-item structure, retention math, change-order tracking, GC-specific formatting. Drop-in replacement for the monthly billing scramble.</p>
+        <div class="tier-meta"><span>1–2 weeks</span><span>Company-specific</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Power Query Automation</span>
+          <span class="tier-price">$750–$2,000</span>
+        </div>
+        <p class="tier-desc">Connect your timesheet folder, your accounting export, your daily logs — whatever data sources you have — into auto-refreshing reports. No SaaS subscription, no IT ticket, no API keys.</p>
+        <div class="tier-meta"><span>1–2 weeks</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Custom Dashboard Build</span>
+          <span class="tier-price">$500–$1,500</span>
+        </div>
+        <p class="tier-desc">Single-purpose dashboard. 3–5 tabs, styled, plug-and-play with the data shape you already have. The thing you'd build if you had a free weekend and the skill to do it.</p>
+        <div class="tier-meta"><span>1–2 weeks</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Existing Workbook Overhaul</span>
+          <span class="tier-price">$500–$1,500</span>
+        </div>
+        <p class="tier-desc">You have a workbook held together with VLOOKUP and prayer. I rebuild it: clean architecture, formulas that survive the next PM, Power Query where it earns its keep, dashboard if you want one.</p>
+        <div class="tier-meta"><span>1–2 weeks</span></div>
+      </div>
+
+    </div>
+
+    <p class="group-label">Retainer · Recurring, monthly</p>
+    <div class="tiers">
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Fractional Controls</span>
+          <span class="tier-price">$2,000–$4,000 / mo</span>
+        </div>
+        <p class="tier-desc">15–20 hrs/month. I act as your project controls department: monthly reporting, pay-app prep, cost-to-complete forecasts, owner-meeting decks. Cheaper than hiring; more senior than a coordinator.</p>
+        <div class="tier-meta"><span>Cancel anytime</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Active Support</span>
+          <span class="tier-price">$750–$1,500 / mo</span>
+        </div>
+        <p class="tier-desc">8–12 hrs/month. Monthly reporting + pay-app prep support + ad-hoc Excel questions. For shops that have a PM running the books but want a power user on call.</p>
+        <div class="tier-meta"><span>Cancel anytime</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Maintenance</span>
+          <span class="tier-price">$300–$500 / mo</span>
+        </div>
+        <p class="tier-desc">2–4 hrs/month. Keep your workbooks working: minor updates, fixes, small add-ons. The retainer that prevents your custom build from rotting after delivery.</p>
+        <div class="tier-meta"><span>Cancel anytime</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Why this exists</p>
+    <h2>Not an Excel guy who learned construction.</h2>
+    <div class="why-body">
+      <p>The construction industry runs on workbooks. Subs in the $5M–$50M range can't afford Procore plus Primavera plus a custom ERP, but they're managing $20M backlogs on spreadsheets held together with VLOOKUP and prayer. They're underbilling. They're missing change orders. They're reconciling manually every month and losing margin to it.</p>
+      <p>I'm a construction PM who built production-grade project controls systems from scratch on a $100M+ project. Takeoff registers, commodity curves, G702/G703 pay-app pipelines, T&amp;M billing engines, Power Query timesheet aggregators, dark-themed dashboards that actually get used in meetings. Not theory. Production.</p>
+      <p><strong>Built Dirty / Builds is that kit, productized.</strong> The templates are stripped versions of what shipped on a real job. The custom builds are the same systems, adapted to your company. The retainer is me on retainer.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">How it works</p>
+    <h2>Three ways to buy.</h2>
+
+    <div class="flows">
+
+      <div class="flow">
+        <div class="flow-label">Templates</div>
+        <div class="flow-title">Buy &amp; download</div>
+        <ol class="flow-steps">
+          <li>Pick a template or the bundle</li>
+          <li>Pay through Stripe</li>
+          <li>Instant download + Loom walkthrough</li>
+        </ol>
+      </div>
+
+      <div class="flow">
+        <div class="flow-label">Custom</div>
+        <div class="flow-title">Scope, build, train</div>
+        <ol class="flow-steps">
+          <li>30-min discovery call: contracts, billing, what's broken</li>
+          <li>Scope doc (1 page) + 50% deposit, balance on delivery</li>
+          <li>Build, walkthrough, 30-day bug-fix window</li>
+        </ol>
+      </div>
+
+      <div class="flow">
+        <div class="flow-label">Retainer</div>
+        <div class="flow-title">Monthly engagement</div>
+        <ol class="flow-steps">
+          <li>Scope call: what do you want me on the hook for</li>
+          <li>Stripe subscription starts, hours roll forward 1 month</li>
+          <li>Cancel any time, no last-month-pro-rata</li>
+        </ol>
+      </div>
+
+    </div>
+
+    <div class="cta-row">
+      <a href="mailto:contact@builtdirty.com?subject=Built%20Dirty%20Builds%20%E2%80%94%20interested" class="btn btn-primary">Start a project</a>
+    </div>
+
+    <div class="crosslink">
+      <div class="crosslink-text">Shipping an iOS app instead? <strong>Built Dirty / Apps</strong> handles privacy policy, terms, EULA and the rest of the legal stack for indie founders.</div>
+      <a href="/apps" class="btn btn-ghost">See Apps</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-block-label">Legal</p>
+        <div class="footer-links">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/accessibility">Accessibility</a>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <p class="footer-block-label">Contact</p>
+        <a href="mailto:contact@builtdirty.com">contact@builtdirty.com</a>
+      </div>
+    </div>
+    <p class="disclaimer">Built Dirty is a brand of Domus Antonia Lux LLC. Templates and custom builds on the Builds line are productivity tools, not licensed engineering, legal, or accounting work product. User is responsible for verifying all calculations and ensuring compliance with their contract terms.</p>
+    <p class="copy">© <span id="year">2026</span> Domus Antonia Lux LLC · builtdirty.com</p>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

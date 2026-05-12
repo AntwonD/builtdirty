@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Built Dirty / Apps — Launch kits for indie iOS founders</title>
+<meta name="description" content="Privacy policy, ToS, EULA and the rest of the legal stack for indie iOS apps. Built by a founder who shipped his own. 3–7 day turnaround, under attorney rates.">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:title" content="Built Dirty / Apps">
+<meta property="og:description" content="Launch-ready legal stack and shipping help for indie iOS founders. Built by a founder who shipped his own.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://builtdirty.com/apps">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --surface: #141414;
+    --surface-2: #1a1a1a;
+    --border: #262626;
+    --border-strong: #3a3a3a;
+    --text: #f5f5f5;
+    --text-dim: #a3a3a3;
+    --muted: #6b6b6b;
+    --spark: #ff5722;
+    --spark-dim: rgba(255, 87, 34, 0.12);
+    --rule: #1f1f1f;
+  }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image:
+      linear-gradient(180deg, rgba(255, 87, 34, 0.04) 0%, transparent 32%),
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.012) 0px, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 4px);
+    min-height: 100vh;
+  }
+
+  ::selection { background: var(--spark); color: #000; }
+
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--rule);
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: var(--spark);
+    transform: rotate(45deg);
+  }
+  .nav-right {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .nav-link {
+    color: var(--text-dim);
+    text-decoration: none;
+    padding: 6px 10px;
+    border: 1px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .nav-link:hover { color: var(--spark); }
+  .nav-link.active {
+    color: var(--text);
+    border-color: var(--border);
+  }
+  .nav-sep { color: var(--rule); }
+
+  /* Hero */
+  .hero {
+    padding: 80px 0 64px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--spark);
+    padding: 6px 10px;
+    border: 1px solid var(--spark-dim);
+    background: var(--spark-dim);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+  .hero h1 .spark { color: var(--spark); }
+  .hero .lede {
+    font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+    color: var(--text-dim);
+    max-width: 620px;
+    line-height: 1.55;
+    margin-bottom: 36px;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+  .hero-meta span::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--spark);
+    border-radius: 50%;
+  }
+
+  /* Sections */
+  section { padding: 72px 0; border-bottom: 1px solid var(--rule); }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--spark);
+    margin-bottom: 14px;
+  }
+  .section-label::before { content: '// '; opacity: 0.6; }
+
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 32px;
+    color: var(--text);
+  }
+
+  /* Tier cards */
+  .tiers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .tier {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: border-color 0.15s ease;
+  }
+  .tier:hover { border-color: var(--border-strong); }
+  .tier.featured { border-color: var(--spark); position: relative; }
+  .tier.featured::before {
+    content: 'Most picked';
+    position: absolute;
+    top: -10px;
+    left: 24px;
+    background: var(--spark);
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    font-weight: 700;
+  }
+  .tier-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .tier-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  .tier-price {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--spark);
+    white-space: nowrap;
+  }
+  .tier-desc { color: var(--text-dim); font-size: 0.95rem; line-height: 1.55; }
+  .tier-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border);
+  }
+
+  /* Why */
+  .why-body p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-dim);
+    margin-bottom: 18px;
+    max-width: 640px;
+  }
+  .why-body p:last-child { margin-bottom: 0; }
+  .why-body strong { color: var(--text); font-weight: 600; }
+
+  /* How */
+  .steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    counter-reset: step;
+  }
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--spark);
+    padding: 24px 28px;
+    counter-increment: step;
+  }
+  .step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--spark);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .step-num::before { content: 'Step ' counter(step, decimal-leading-zero) ' / '; }
+  .step-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .step-body { color: var(--text-dim); font-size: 0.95rem; }
+
+  /* CTA */
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 36px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--spark);
+    color: #000;
+    border-color: var(--spark);
+  }
+  .btn-primary:hover { background: #ff7849; border-color: #ff7849; }
+  .btn-primary::after { content: ' →'; transition: transform 0.15s ease; }
+  .btn-primary:hover::after { transform: translateX(2px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+  .btn-ghost:hover { border-color: var(--spark); color: var(--spark); }
+
+  /* Cross-link */
+  .crosslink {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--spark);
+    padding: 24px 28px;
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .crosslink-text {
+    flex: 1;
+    min-width: 240px;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+  }
+  .crosslink-text strong { color: var(--text); font-family: 'Space Grotesk', sans-serif; font-weight: 600; }
+
+  /* Footer */
+  footer { padding: 56px 0 40px; color: var(--muted); font-size: 13px; }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+  .footer-block-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+  }
+  .footer-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.15s ease;
+  }
+  .footer-links a:hover { color: var(--spark); }
+  .footer-contact a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-strong);
+    transition: color 0.15s ease, border-color 0.15s ease;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+  }
+  .footer-contact a:hover { color: var(--spark); border-color: var(--spark); }
+  .disclaimer {
+    border-top: 1px solid var(--rule);
+    padding-top: 24px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 720px;
+  }
+  .copy {
+    margin-top: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+
+  @media (min-width: 720px) {
+    .tiers { grid-template-columns: 1fr 1fr; }
+    .tier.featured { grid-column: span 2; }
+    .steps { grid-template-columns: repeat(3, 1fr); }
+    .footer-grid { grid-template-columns: 2fr 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <nav>
+    <a href="/" class="brand">Built Dirty</a>
+    <div class="nav-right">
+      <a href="/apps" class="nav-link active">Apps</a>
+      <span class="nav-sep">/</span>
+      <a href="/builds" class="nav-link">Builds</a>
+      <a href="mailto:contact@builtdirty.com" class="nav-link">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <span class="tag">Apps · For indie iOS founders</span>
+    <h1>Ship your app<br>without the <span class="spark">legal-stack</span> tax.</h1>
+    <p class="lede">Privacy Policy, Terms, EULA, DMCA, the lot — generalized from what I shipped with my own iOS app, productized for the next founder who hits the same wall.</p>
+    <div class="hero-meta">
+      <span>3–7 day turnaround</span>
+      <span>Under attorney rates</span>
+      <span>Indie iOS focus</span>
+    </div>
+    <div class="cta-row">
+      <a href="#what-you-get" class="btn btn-primary">See the kits</a>
+      <a href="mailto:contact@builtdirty.com?subject=Built%20Dirty%20Apps%20%E2%80%94%20interested" class="btn btn-ghost">Email me</a>
+    </div>
+  </header>
+
+  <section id="what-you-get">
+    <p class="section-label">What you get</p>
+    <h2>Three core kits. A few sharper tools.</h2>
+
+    <div class="tiers">
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Solo Launch Starter</span>
+          <span class="tier-price">$499</span>
+        </div>
+        <p class="tier-desc">Privacy Policy + Terms of Service, customized to your app's facts. For apps with no user-generated content.</p>
+        <div class="tier-meta"><span>3 business days</span><span>1 revision</span></div>
+      </div>
+
+      <div class="tier featured">
+        <div class="tier-head">
+          <span class="tier-name">Full Launch Stack</span>
+          <span class="tier-price">$899</span>
+        </div>
+        <p class="tier-desc">Everything in Solo plus EULA, Community Guidelines, DMCA, Cookies disclosure, Accessibility statement, and an App Privacy Labels review you can paste into App Store Connect. The whole legal kit for an indie iOS launch.</p>
+        <div class="tier-meta"><span>5 business days</span><span>1 revision</span><span>~80% of apps land here</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Stack + Web</span>
+          <span class="tier-price">$1,299</span>
+        </div>
+        <p class="tier-desc">Full Stack plus a Cloudflare Pages landing page, custom-domain DNS, and email forwarding. All your legal docs hosted at your domain. Pre-launch founders who don't have a site yet.</p>
+        <div class="tier-meta"><span>7 business days</span><span>Domain + DNS</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Submission Compliance Audit</span>
+          <span class="tier-price">$199</span>
+        </div>
+        <p class="tier-desc">90-minute review of your app + App Store Connect listing. Written report flagging rejection risks before you hit submit, with specific App Review section references.</p>
+        <div class="tier-meta"><span>24 hours</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Trademark Filing Help</span>
+          <span class="tier-price">$249</span>
+        </div>
+        <p class="tier-desc">TESS search for prior marks, TEAS Plus form walkthrough, goods/services ID selection, and first-30-day post-filing monitoring. USPTO fees not included.</p>
+        <div class="tier-meta"><span>1–2 business days</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Template Pack</span>
+          <span class="tier-price">$79 / $149</span>
+        </div>
+        <p class="tier-desc">All 8 documents as fill-in-the-blanks HTML and Markdown. Variable substitution guide and Apple Privacy Labels checklist. Self-serve, instant download.</p>
+        <div class="tier-meta"><span>Instant</span><span>No support</span></div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head">
+          <span class="tier-name">Compliance Retainer</span>
+          <span class="tier-price">$99 / mo</span>
+        </div>
+        <p class="tier-desc">Annual policy refresh, law-change alerts when state privacy laws shift, one ad-hoc question per month, and App Review response support if you get rejected on legal-stack grounds.</p>
+        <div class="tier-meta"><span>Cancel anytime</span><span>Post-delivery upsell</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Why this exists</p>
+    <h2>I shipped mine. I built the kit on the way out.</h2>
+    <div class="why-body">
+      <p>I shipped my own iOS app in May 2026. I burned a week researching what App Review actually checks for. I burned another three days hand-writing a privacy policy from a Notion template that didn't cover CCPA, CPRA, or any of the five other state laws that landed in 2024 and 2025.</p>
+      <p>Every indie dev I've talked to since has hit the same wall. Attorneys quote four figures for the same templated work and take two weeks to deliver. The cheap online generators don't pass App Review.</p>
+      <p><strong>Built Dirty Apps is the kit I wish I'd had.</strong> Generalized from what shipped on a live App Store listing, priced below a single attorney consult, turned around in days instead of weeks.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">How it works</p>
+    <h2>Three steps. No calls required.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-title">Pick a kit</div>
+        <div class="step-body">Pay through Stripe. You get an intake form and an engagement letter to sign.</div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-title">Fill the intake</div>
+        <div class="step-body">15 questions about your app, your data flow, and your business. Takes about 20 minutes.</div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-title">Get your kit</div>
+        <div class="step-body">Deliverables hit your inbox in 3–7 days depending on the tier. One revision round included.</div>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a href="mailto:contact@builtdirty.com?subject=Built%20Dirty%20Apps%20%E2%80%94%20kit%20question" class="btn btn-primary">Start a kit</a>
+    </div>
+
+    <div class="crosslink">
+      <div class="crosslink-text">Running construction work instead? <strong>Built Dirty / Builds</strong> handles project controls, pay apps, and Power Query automation for subs and small GCs.</div>
+      <a href="/builds" class="btn btn-ghost">See Builds</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-block-label">Legal</p>
+        <div class="footer-links">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/accessibility">Accessibility</a>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <p class="footer-block-label">Contact</p>
+        <a href="mailto:contact@builtdirty.com">contact@builtdirty.com</a>
+      </div>
+    </div>
+    <p class="disclaimer">Built Dirty is a brand of Domus Antonia Lux LLC. We are not a law firm. Documents produced on the Apps line are templates, not legal advice. Have an attorney licensed in your jurisdiction review before publication.</p>
+    <p class="copy">© <span id="year">2026</span> Domus Antonia Lux LLC · builtdirty.com</p>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
