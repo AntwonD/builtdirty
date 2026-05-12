@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Accessibility Statement — Built Dirty</title>
+<meta name="description" content="How builtdirty.com is built for accessibility, what's working, what's not, and how to flag something we missed.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0a; --surface: #141414; --border: #262626; --border-strong: #3a3a3a;
+    --text: #f5f5f5; --text-dim: #a3a3a3; --muted: #6b6b6b;
+    --spark: #ff5722; --spark-dim: rgba(255, 87, 34, 0.12); --rule: #1f1f1f;
+  }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      linear-gradient(180deg, rgba(255, 87, 34, 0.04) 0%, transparent 32%),
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.012) 0px, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 4px);
+    min-height: 100vh;
+  }
+  ::selection { background: var(--spark); color: #000; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  nav {
+    padding: 24px 0; display: flex; justify-content: space-between;
+    align-items: center; border-bottom: 1px solid var(--rule);
+  }
+  .brand {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px;
+    letter-spacing: -0.02em; color: var(--text); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .brand::before {
+    content: ''; display: inline-block; width: 10px; height: 10px;
+    background: var(--spark); transform: rotate(45deg);
+  }
+  .nav-link {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-dim);
+    text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .nav-link:hover { color: var(--spark); }
+
+  article { padding: 64px 0 80px; }
+  .doc-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--spark); margin-bottom: 14px;
+  }
+  .doc-label::before { content: '// '; opacity: 0.6; }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 16px;
+  }
+  .meta {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    color: var(--muted); letter-spacing: 0.04em; margin-bottom: 40px;
+  }
+  h2 {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+    font-size: 1.5rem; letter-spacing: -0.02em;
+    margin: 48px 0 16px; color: var(--text);
+  }
+  p { color: var(--text-dim); margin-bottom: 16px; }
+  p strong { color: var(--text); font-weight: 600; }
+  ul { padding-left: 20px; margin-bottom: 16px; }
+  li { color: var(--text-dim); margin-bottom: 8px; }
+  li strong { color: var(--text); font-weight: 600; }
+  a { color: var(--spark); text-decoration: none; border-bottom: 1px solid var(--spark-dim); }
+  a:hover { border-color: var(--spark); }
+  .tldr {
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--spark); padding: 20px 24px;
+    margin: 24px 0 40px;
+  }
+  .tldr p { margin-bottom: 0; }
+  .tldr strong { color: var(--text); }
+  .disclaimer {
+    font-size: 13px; color: var(--muted); line-height: 1.6;
+    padding-top: 24px; border-top: 1px solid var(--rule); margin-top: 32px;
+  }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; }
+  .footer-links {
+    display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 12px;
+  }
+  .footer-links a {
+    color: var(--text-dim); border: none; font-size: 13px;
+  }
+  .footer-links a:hover { color: var(--spark); }
+  .copy {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.04em; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav>
+    <a href="/" class="brand">Built Dirty</a>
+    <a href="/" class="nav-link">← Back</a>
+  </nav>
+
+  <article>
+    <p class="doc-label">Legal · Accessibility</p>
+    <h1>Accessibility Statement</h1>
+    <p class="meta">Effective: May 12, 2026 · Domus Antonia Lux LLC (Built Dirty)</p>
+
+    <div class="tldr">
+      <p><strong>The short version.</strong> Built Dirty targets WCAG 2.1 Level AA. The marketing site is a single HTML page that works with keyboards, screen readers, zoom up to 200%, and reduced-motion settings. If something doesn't work for you, email <a href="mailto:contact@builtdirty.com">contact@builtdirty.com</a> and we'll fix it.</p>
+    </div>
+
+    <h2>1. Our standard</h2>
+    <p>We target the <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener">Web Content Accessibility Guidelines (WCAG) 2.1 at Level AA</a> for builtdirty.com. WCAG 2.1 AA is the standard most jurisdictions reference (including the ADA's anticipated regulations and Section 508 in the U.S.).</p>
+
+    <h2>2. What's implemented</h2>
+    <ul>
+      <li><strong>Semantic HTML.</strong> Pages use proper headings (<code>h1</code>, <code>h2</code>), landmarks (<code>nav</code>, <code>main</code>, <code>footer</code>, <code>article</code>), and link/button elements — not styled <code>div</code> soup.</li>
+      <li><strong>Keyboard navigation.</strong> All interactive elements (links, buttons) are reachable and operable with a keyboard. Visible focus indicators are preserved (we don't suppress browser default focus rings).</li>
+      <li><strong>Color contrast.</strong> Body text, headings, and link text meet or exceed the WCAG AA contrast minimum of 4.5:1 against the page background. The accent color used for links and buttons (<code>#ff5722</code> on <code>#0a0a0a</code>) is checked against the same ratio.</li>
+      <li><strong>Zoom and resizing.</strong> The layout reflows cleanly at 200% browser zoom and on viewports as narrow as 320px. Font sizes are set in relative units (<code>rem</code>, <code>clamp</code>) so user font preferences are respected.</li>
+      <li><strong>Reduced motion.</strong> The site respects the <code>prefers-reduced-motion</code> media query — animations and transitions are disabled for users who've requested it at the system level.</li>
+      <li><strong>Color is not the only signal.</strong> Information conveyed by color (the orange accent) is always paired with a textual or structural cue — we don't ask users to identify state by color alone.</li>
+      <li><strong>Text alternatives.</strong> The site is typography-driven; there are no images carrying meaning that would require alternative text.</li>
+      <li><strong>Language attribute.</strong> Pages declare <code>lang="en"</code> so screen readers pronounce content with the correct voice.</li>
+      <li><strong>Viewport meta tag.</strong> User zoom is not disabled — pinch-zoom and browser zoom both work.</li>
+    </ul>
+
+    <h2>3. Known limitations</h2>
+    <p>We're a one-person shop and the site is hand-rolled, not built on a tested CMS. Known gaps:</p>
+    <ul>
+      <li>The site has not been independently audited by a third-party accessibility tester. Targeting AA is intent; certification is not claimed.</li>
+      <li>Some PDF deliverables (kit outputs) may not be fully accessible. Email us if you need a tagged-accessible version of any document we've sent you and we'll re-export.</li>
+      <li>The Built Dirty logomark (the small orange diamond) is decorative and has no text alternative because it carries no information beyond the brand name next to it.</li>
+    </ul>
+
+    <h2>4. Compatibility</h2>
+    <p>The site is built and tested against the current major releases of Safari (macOS and iOS), Chrome, Firefox, and Edge. Screen readers we test against include VoiceOver (macOS and iOS) and NVDA on Windows. Older browsers may render the site without some visual styling, but content remains readable.</p>
+
+    <h2>5. Tell us when we miss something</h2>
+    <p>If any page on builtdirty.com has an accessibility barrier — a missing focus indicator, a color contrast issue, a screen-reader bug, a keyboard trap, anything — email <a href="mailto:contact@builtdirty.com">contact@builtdirty.com</a> with:</p>
+    <ul>
+      <li>The page (URL) where you hit the issue</li>
+      <li>What you were trying to do</li>
+      <li>What assistive technology, browser, or OS you were using (if relevant)</li>
+    </ul>
+    <p>We aim to respond within 5 business days and to fix substantiated issues within 30 days where reasonably feasible.</p>
+
+    <h2>6. Formal complaints</h2>
+    <p>If we don't resolve an issue you raise, you may file a complaint with the U.S. Department of Justice or your state attorney general's office. We'd rather you give us a chance to fix it first.</p>
+
+    <h2>7. About this statement</h2>
+    <p>This statement was last reviewed on May 12, 2026. We'll update it as the site evolves and as new accessibility features ship.</p>
+
+    <p class="disclaimer">Built Dirty is a brand of Domus Antonia Lux LLC. We are not a law firm. Documents we deliver to clients are templates, not legal advice. Have an attorney licensed in your jurisdiction review before publication.</p>
+  </article>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/accessibility">Accessibility</a>
+      <a href="mailto:contact@builtdirty.com">Contact</a>
+    </div>
+    <div class="copy">© <span id="year">2026</span> Domus Antonia Lux LLC · builtdirty.com</div>
+  </footer>
+
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

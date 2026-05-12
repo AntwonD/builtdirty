@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Terms of Service — Built Dirty</title>
+<meta name="description" content="Terms governing Built Dirty kit purchases, deliverables, refunds, and the no-legal-advice disclaimer.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0a; --surface: #141414; --border: #262626; --border-strong: #3a3a3a;
+    --text: #f5f5f5; --text-dim: #a3a3a3; --muted: #6b6b6b;
+    --spark: #ff5722; --spark-dim: rgba(255, 87, 34, 0.12); --rule: #1f1f1f;
+  }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      linear-gradient(180deg, rgba(255, 87, 34, 0.04) 0%, transparent 32%),
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.012) 0px, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 4px);
+    min-height: 100vh;
+  }
+  ::selection { background: var(--spark); color: #000; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  nav {
+    padding: 24px 0; display: flex; justify-content: space-between;
+    align-items: center; border-bottom: 1px solid var(--rule);
+  }
+  .brand {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px;
+    letter-spacing: -0.02em; color: var(--text); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .brand::before {
+    content: ''; display: inline-block; width: 10px; height: 10px;
+    background: var(--spark); transform: rotate(45deg);
+  }
+  .nav-link {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-dim);
+    text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .nav-link:hover { color: var(--spark); }
+
+  article { padding: 64px 0 80px; }
+  .doc-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--spark); margin-bottom: 14px;
+  }
+  .doc-label::before { content: '// '; opacity: 0.6; }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 16px;
+  }
+  .meta {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    color: var(--muted); letter-spacing: 0.04em; margin-bottom: 40px;
+  }
+  h2 {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+    font-size: 1.5rem; letter-spacing: -0.02em;
+    margin: 48px 0 16px; color: var(--text);
+  }
+  h3 {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+    font-size: 1.1rem; margin: 32px 0 12px; color: var(--text);
+  }
+  p { color: var(--text-dim); margin-bottom: 16px; }
+  p strong { color: var(--text); font-weight: 600; }
+  ul { padding-left: 20px; margin-bottom: 16px; }
+  li { color: var(--text-dim); margin-bottom: 8px; }
+  li strong { color: var(--text); font-weight: 600; }
+  a { color: var(--spark); text-decoration: none; border-bottom: 1px solid var(--spark-dim); }
+  a:hover { border-color: var(--spark); }
+  .tldr {
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--spark); padding: 20px 24px;
+    margin: 24px 0 40px;
+  }
+  .tldr p { margin-bottom: 0; }
+  .tldr strong { color: var(--text); }
+  .caps {
+    text-transform: uppercase; letter-spacing: 0.04em;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.95em;
+  }
+  hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0 32px; }
+  .disclaimer {
+    font-size: 13px; color: var(--muted); line-height: 1.6;
+    padding-top: 24px; border-top: 1px solid var(--rule); margin-top: 32px;
+  }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; }
+  .footer-links {
+    display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 12px;
+  }
+  .footer-links a {
+    color: var(--text-dim); border: none; font-size: 13px;
+  }
+  .footer-links a:hover { color: var(--spark); }
+  .copy {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.04em; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav>
+    <a href="/" class="brand">Built Dirty</a>
+    <a href="/" class="nav-link">← Back</a>
+  </nav>
+
+  <article>
+    <p class="doc-label">Legal · Terms</p>
+    <h1>Terms of Service</h1>
+    <p class="meta">Effective: May 12, 2026 · Domus Antonia Lux LLC (Built Dirty)</p>
+
+    <div class="tldr">
+      <p><strong>The short version.</strong> Built Dirty sells productized template-rendering and advisory kits to founders. We are not a law firm. Deliverables are templates, not legal advice. You pay upfront via Stripe. You get a pro-rata refund if you cancel before delivery begins, no refund after. Each kit includes one revision round. You own your deliverables; we keep the underlying templates and methods. Alabama law and Mobile County venue govern any dispute.</p>
+    </div>
+
+    <h2>1. The agreement</h2>
+    <p>These Terms govern your use of <a href="https://builtdirty.com">builtdirty.com</a> ("the Site") and any kit, retainer, audit, or other service ("Services") you purchase from Built Dirty, a brand of <strong>Domus Antonia Lux LLC</strong>, an Alabama single-member limited liability company ("Built Dirty," "we," "us," or "our").</p>
+    <p>By using the Site or purchasing Services, you agree to these Terms. If you do not agree, do not use the Site or purchase Services.</p>
+
+    <h2>2. Who can purchase</h2>
+    <p>You must be at least 18 years old and have the legal capacity to enter contracts in your jurisdiction. If you're purchasing on behalf of a company or entity, you represent that you have authority to bind it.</p>
+
+    <h2>3. What we sell</h2>
+    <p>Built Dirty offers fixed-fee kits, monthly retainers, and one-off audits. Current offerings, pricing, and turnaround windows are listed on the Site. We may add, remove, or reprice offerings at any time; what you actually buy is the offering as it existed at the time of your purchase.</p>
+
+    <h3>Nature of the deliverable</h3>
+    <p>Our kits produce <strong>legal-document templates customized to facts you provide</strong>. We do not produce legal advice. We do not represent you. We do not establish an attorney-client relationship. The person rendering your kit is not licensed to practice law and is not holding themselves out as an attorney. See Section 11 for the full disclaimer.</p>
+
+    <h2>4. How an engagement works</h2>
+    <p>Each engagement runs in this order:</p>
+    <ul>
+      <li><strong>(a)</strong> You purchase a kit on the Site. Payment is processed by Stripe and is required in full before any work begins.</li>
+      <li><strong>(b)</strong> We send you an engagement letter, an intake form, and a receipt.</li>
+      <li><strong>(c)</strong> You sign the engagement letter (DocuSign) and submit the intake form.</li>
+      <li><strong>(d)</strong> The turnaround clock starts when <em>both</em> the signed engagement letter and the complete intake form have been received. Incomplete intakes pause the clock until clarifications are received.</li>
+      <li><strong>(e)</strong> We deliver the kit by email within the turnaround window for your tier.</li>
+      <li><strong>(f)</strong> You have 14 calendar days from delivery to request your one included revision round (defined below).</li>
+      <li><strong>(g)</strong> After 14 days without a revision request, or after one revision round is delivered, the engagement is closed.</li>
+    </ul>
+
+    <h3>What counts as a "revision round"</h3>
+    <p>One revision round is <strong>one batch of consolidated change requests covering the documents already delivered</strong>. It is not unlimited back-and-forth. It does not cover scope additions (e.g., adding a new document not in your tier, changing your governing-law state, or revising in response to a third party's redline). Out-of-scope changes are quoted separately.</p>
+
+    <h2>5. Payment</h2>
+    <p>All Services are paid in full at the time of purchase via Stripe. We do not currently offer payment plans, NET-30 invoicing, or deposits. Subscriptions (the Compliance Retainer) bill monthly and may be cancelled at any time from your Stripe customer portal; cancellation takes effect at the end of the current billing period.</p>
+    <p>Prices on the Site are in U.S. dollars and do not include any sales tax that may apply in your jurisdiction.</p>
+
+    <h2>6. Refunds</h2>
+    <p>Our refund policy is <strong>pro-rata before delivery begins, nothing after</strong>:</p>
+    <ul>
+      <li><strong>Before engagement letter and intake are both submitted:</strong> 100% refund, no questions.</li>
+      <li><strong>After submission but before drafting has begun:</strong> 100% refund minus Stripe processing fees.</li>
+      <li><strong>After drafting has begun but before delivery:</strong> pro-rata refund based on work completed, at our reasonable determination.</li>
+      <li><strong>After delivery:</strong> no refund. The included revision round is your remedy for documents that don't fit your facts.</li>
+      <li><strong>Compliance Retainer:</strong> cancel any time. The current month is not pro-rated.</li>
+    </ul>
+    <p>Refund requests go to <a href="mailto:contact@builtdirty.com">contact@builtdirty.com</a>. We process approved refunds within 7 business days.</p>
+
+    <h2>7. Intellectual property</h2>
+    <h3>What you own</h3>
+    <p>Once you've paid in full and your engagement is delivered, you own a perpetual, worldwide, royalty-free license to use the deliverables (the rendered HTML, the customized text, any PDF summary we send) for your own business, including publication on your website and use in your App Store submission. You may modify them.</p>
+
+    <h3>What we keep</h3>
+    <p>Built Dirty retains all rights to the <strong>underlying templates, methods, prompt structures, and rendering tooling</strong> that produced your deliverables. You receive a license to the output; you do not receive a license to the system that produced it.</p>
+
+    <h3>Your warranties to us</h3>
+    <p>By submitting an intake form, you warrant that the facts you provide are accurate, that you own or have permission to use any business names, marks, or descriptions you submit, and that providing them to us does not infringe any third party's rights.</p>
+
+    <h2>8. Portfolio right</h2>
+    <p>Unless you opt out in writing before delivery, we may publicly identify you as a Built Dirty client (e.g., "Built Dirty has worked with [your business name]" or display your logo on a clients page). We do not disclose the contents of your kit, the facts you submitted, or any other details about the engagement. To opt out, email <a href="mailto:contact@builtdirty.com">contact@builtdirty.com</a> before delivery and include the phrase "opt out of portfolio."</p>
+
+    <h2>9. Acceptable use of the Site</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Scrape, mirror, or republish the Site or its contents without permission.</li>
+      <li>Attempt to access non-public areas of the Site or our systems.</li>
+      <li>Submit knowingly false information in any intake form.</li>
+      <li>Use the Site to harass, defame, or unlawfully target any person.</li>
+    </ul>
+
+    <h2>10. Third-party content and services</h2>
+    <p>The Site may link to third-party websites or services (Stripe, USPTO, Apple Developer documentation, etc.). We don't control those sites and aren't responsible for their content, privacy practices, or anything else.</p>
+
+    <h2>11. Disclaimer of attorney services <span class="caps">— important</span></h2>
+    <p><strong>Built Dirty is not a law firm. The person rendering your kit is not an attorney and is not licensed to practice law in any jurisdiction.</strong> Documents we deliver are <strong>legal-document templates customized to facts you provide</strong>. They are <strong>not legal advice</strong>.</p>
+    <p>Engaging Built Dirty does <strong>not</strong> establish an attorney-client relationship. We do not represent you. Communications with us are not protected by attorney-client privilege.</p>
+    <p>You are solely responsible for engaging an attorney licensed in your jurisdiction to review any document we deliver before you publish or rely on it. You are solely responsible for your legal compliance.</p>
+    <p>If you have a question whose honest answer requires legal judgment — "is this clause enforceable in my state?", "do I need to register this trademark?", "can I be sued for X?" — we will decline and refer you to counsel. We will not soft-pedal.</p>
+
+    <h2>12. No warranty</h2>
+    <p class="caps"><strong>The Services and Site are provided "as is" and "as available." To the maximum extent permitted by law, Built Dirty disclaims all warranties, express or implied, including merchantability, fitness for a particular purpose, non-infringement, and any warranty arising from course of dealing or trade usage. We do not warrant that any deliverable will achieve any specific legal, regulatory, or App Store Review outcome.</strong></p>
+
+    <h2>13. Limitation of liability</h2>
+    <p class="caps"><strong>To the maximum extent permitted by law, Built Dirty's aggregate liability arising out of or related to your use of the Services or Site shall not exceed the amount you paid us in the 12 months preceding the claim. Built Dirty shall not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, including lost profits, lost data, or business interruption, even if advised of the possibility of such damages.</strong></p>
+
+    <h2>14. Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless Built Dirty, Domus Antonia Lux LLC, and its sole member from any claim, loss, liability, damage, or expense (including reasonable attorneys' fees) arising from: (a) your use of any deliverable, (b) your publication or reliance on any deliverable, (c) your breach of these Terms, or (d) any inaccurate fact you submitted in an intake form.</p>
+
+    <h2>15. Governing law and venue</h2>
+    <p>These Terms are governed by the laws of the State of Alabama, without regard to its conflict-of-laws principles. Any dispute arising out of or related to these Terms or the Services shall be brought exclusively in the state or federal courts located in <strong>Mobile County, Alabama</strong>, and you consent to personal jurisdiction in those courts.</p>
+
+    <h2>16. Arbitration and class-action waiver</h2>
+    <p>At Built Dirty's election, any dispute may be referred to binding individual arbitration administered by the American Arbitration Association under its Commercial Arbitration Rules. <strong>You waive any right to bring a claim against Built Dirty as a class action or class-arbitration representative.</strong> If a court finds the class waiver unenforceable, the arbitration clause is severable from the rest of these Terms.</p>
+
+    <h2>17. Termination</h2>
+    <p>We may suspend or terminate your access to the Site or any Service at any time if you breach these Terms, abuse the Services, or use the Site unlawfully. On termination for cause, no refund is owed beyond what Section 6 requires.</p>
+
+    <h2>18. Changes to these Terms</h2>
+    <p>We may update these Terms. The most current version is always at <a href="https://builtdirty.com/terms">builtdirty.com/terms</a>. Material changes that affect a paid Service in flight will be communicated by email; for those, the Terms in effect at the time of your purchase govern that purchase.</p>
+
+    <h2>19. Miscellaneous</h2>
+    <ul>
+      <li><strong>Entire agreement.</strong> These Terms plus your signed engagement letter form the entire agreement between us.</li>
+      <li><strong>No waiver.</strong> Our failure to enforce any provision is not a waiver.</li>
+      <li><strong>Severability.</strong> If any provision is found unenforceable, the rest stay in force.</li>
+      <li><strong>Assignment.</strong> You may not assign these Terms without our written consent. We may assign them to a successor in a sale of the business.</li>
+      <li><strong>Force majeure.</strong> Delivery deadlines are extended for events outside our reasonable control (illness, natural disaster, infrastructure outages, etc.) — we'll communicate promptly if one applies.</li>
+    </ul>
+
+    <h2>20. Contact</h2>
+    <p>Questions about these Terms: <a href="mailto:legal@builtdirty.com">legal@builtdirty.com</a><br>
+    General contact: <a href="mailto:contact@builtdirty.com">contact@builtdirty.com</a><br>
+    Mailing address: available on request.</p>
+
+    <p class="disclaimer">Built Dirty is a brand of Domus Antonia Lux LLC. We are not a law firm. Documents we deliver are templates, not legal advice. Have an attorney licensed in your jurisdiction review before publication.</p>
+  </article>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/accessibility">Accessibility</a>
+      <a href="mailto:contact@builtdirty.com">Contact</a>
+    </div>
+    <div class="copy">© <span id="year">2026</span> Domus Antonia Lux LLC · builtdirty.com</div>
+  </footer>
+
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

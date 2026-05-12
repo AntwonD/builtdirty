@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy — Built Dirty</title>
+<meta name="description" content="Built Dirty privacy policy. What we collect (very little), what we don't (analytics, cookies, ad pixels), and how to delete what we have.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0a; --surface: #141414; --border: #262626; --border-strong: #3a3a3a;
+    --text: #f5f5f5; --text-dim: #a3a3a3; --muted: #6b6b6b;
+    --spark: #ff5722; --spark-dim: rgba(255, 87, 34, 0.12); --rule: #1f1f1f;
+  }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      linear-gradient(180deg, rgba(255, 87, 34, 0.04) 0%, transparent 32%),
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.012) 0px, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 4px);
+    min-height: 100vh;
+  }
+  ::selection { background: var(--spark); color: #000; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  nav {
+    padding: 24px 0; display: flex; justify-content: space-between;
+    align-items: center; border-bottom: 1px solid var(--rule);
+  }
+  .brand {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px;
+    letter-spacing: -0.02em; color: var(--text); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .brand::before {
+    content: ''; display: inline-block; width: 10px; height: 10px;
+    background: var(--spark); transform: rotate(45deg);
+  }
+  .nav-link {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-dim);
+    text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .nav-link:hover { color: var(--spark); }
+
+  article { padding: 64px 0 80px; }
+  .doc-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--spark); margin-bottom: 14px;
+  }
+  .doc-label::before { content: '// '; opacity: 0.6; }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 16px;
+  }
+  .meta {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    color: var(--muted); letter-spacing: 0.04em; margin-bottom: 40px;
+  }
+  h2 {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+    font-size: 1.5rem; letter-spacing: -0.02em;
+    margin: 48px 0 16px; color: var(--text);
+  }
+  h3 {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+    font-size: 1.1rem; margin: 32px 0 12px; color: var(--text);
+  }
+  p { color: var(--text-dim); margin-bottom: 16px; }
+  p strong { color: var(--text); font-weight: 600; }
+  ul { padding-left: 20px; margin-bottom: 16px; }
+  li { color: var(--text-dim); margin-bottom: 8px; }
+  li strong { color: var(--text); font-weight: 600; }
+  a { color: var(--spark); text-decoration: none; border-bottom: 1px solid var(--spark-dim); }
+  a:hover { border-color: var(--spark); }
+  .tldr {
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--spark); padding: 20px 24px;
+    margin: 24px 0 40px;
+  }
+  .tldr p { margin-bottom: 0; }
+  .tldr strong { color: var(--text); }
+  hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0 32px; }
+  .disclaimer {
+    font-size: 13px; color: var(--muted); line-height: 1.6;
+    padding-top: 24px; border-top: 1px solid var(--rule); margin-top: 32px;
+  }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; }
+  .footer-links {
+    display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 12px;
+  }
+  .footer-links a {
+    color: var(--text-dim); border: none;
+    font-size: 13px;
+  }
+  .footer-links a:hover { color: var(--spark); }
+  .copy {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.04em; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav>
+    <a href="/" class="brand">Built Dirty</a>
+    <a href="/" class="nav-link">← Back</a>
+  </nav>
+
+  <article>
+    <p class="doc-label">Legal · Privacy</p>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective: May 12, 2026 · Domus Antonia Lux LLC (Built Dirty)</p>
+
+    <div class="tldr">
+      <p><strong>The short version.</strong> Built Dirty collects almost nothing. We have no analytics, no cookies, no ad pixels, no tracking scripts. When you email us, we get your email. When you buy a kit, Stripe processes the payment (we never see your card). When you fill an intake form, we get the business facts you put in it. That's the entire surface. To delete anything we have, email <a href="mailto:privacy@builtdirty.com">privacy@builtdirty.com</a>.</p>
+    </div>
+
+    <h2>1. Who we are</h2>
+    <p>Built Dirty is a brand of <strong>Domus Antonia Lux LLC</strong>, an Alabama single-member limited liability company. We sell productized legal-stack templates, compliance audits, and trademark-filing help to indie iOS developers. "We," "us," and "Built Dirty" mean Domus Antonia Lux LLC throughout this policy.</p>
+
+    <h2>2. What we collect</h2>
+    <p>Three things, all volunteered by you:</p>
+    <ul>
+      <li><strong>Your email.</strong> When you email us at <code>contact@builtdirty.com</code> (or any other built­dirty.com address), we receive your email address and whatever you wrote.</li>
+      <li><strong>Payment metadata.</strong> When you purchase a kit, payment is processed by <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe</a>. We receive a receipt with your name, email, and the kit you bought. We never see, store, or have access to your card details — Stripe handles all of that.</li>
+      <li><strong>Intake form responses.</strong> If you've paid for a kit, you'll fill in an intake form with facts about your business (LLC name, app description, data practices, contact emails, etc.). We collect those answers so we can render your deliverables.</li>
+    </ul>
+
+    <h2>3. What we don't collect</h2>
+    <ul>
+      <li><strong>No analytics.</strong> No Google Analytics, no Plausible, no Mixpanel, no anything. We don't know if you visited this page.</li>
+      <li><strong>No cookies.</strong> Built Dirty's website sets zero cookies. (Cloudflare, our hosting provider, may set a single security cookie called <code>__cf_bm</code> for bot management — we don't have access to its data and it expires when you close your browser.)</li>
+      <li><strong>No ad pixels.</strong> No Facebook Pixel, no LinkedIn Insight Tag, no remarketing scripts.</li>
+      <li><strong>No fingerprinting.</strong> We don't try to identify you across visits, sessions, or devices.</li>
+    </ul>
+
+    <h2>4. How we use what we do collect</h2>
+    <ul>
+      <li>To respond to your emails.</li>
+      <li>To deliver the kit you paid for.</li>
+      <li>To send the receipt and any kit-related follow-up (e.g., revision requests, retainer renewal reminders).</li>
+      <li>To keep tax and compliance records for the period required by IRS and Alabama Department of Revenue (typically 7 years).</li>
+    </ul>
+    <p>We do not use your information for advertising. We do not sell it. We do not share it with research partners. We do not feed it to any AI training pipeline.</p>
+
+    <h2>5. Who we share it with</h2>
+    <p>We share narrowly:</p>
+    <ul>
+      <li><strong>Stripe.</strong> For payment processing. See <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe's privacy policy</a>.</li>
+      <li><strong>Cloudflare.</strong> Hosts this website and handles email forwarding for <code>builtdirty.com</code>. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's privacy policy</a>.</li>
+      <li><strong>Our email provider.</strong> Inbound mail to <code>@builtdirty.com</code> is forwarded to a personal inbox we use to read and respond.</li>
+      <li><strong>Legal process.</strong> If served with valid legal process (subpoena, court order) in a jurisdiction where we operate, we may be compelled to disclose. We push back where we can.</li>
+    </ul>
+    <p>We do not have advertising partners, research partners, or data licensees. Built Dirty does not generate the kind of data that would be useful to those parties.</p>
+
+    <h2>6. Your rights</h2>
+    <ul>
+      <li><strong>Access.</strong> Email <a href="mailto:privacy@builtdirty.com">privacy@builtdirty.com</a> and we'll send you everything we have on you within 30 days.</li>
+      <li><strong>Deletion.</strong> Same email, same response window. Note: we retain tax and engagement-related records for the period required by law (~7 years) even after you ask for deletion, but we won't use them for anything beyond legal recordkeeping.</li>
+      <li><strong>Correction.</strong> Email us. We'll fix it.</li>
+      <li><strong>Portability.</strong> Email us. You'll get a machine-readable copy.</li>
+    </ul>
+    <p><strong>For California residents:</strong> CCPA and CPRA give you the rights above plus a right to opt out of "sale" or "sharing" of personal information. Built Dirty does not sell or share personal information, so there is nothing to opt out of. This section serves as our CCPA Notice at Collection.</p>
+    <p><strong>For Virginia, Colorado, Connecticut, Utah, Texas, Oregon, Montana, and Delaware residents:</strong> Your state has a privacy law modeled on CCPA. The rights above cover what each of those laws grants.</p>
+
+    <h2>7. Children</h2>
+    <p>Built Dirty sells services to founders and businesses. We don't direct services to anyone under 18 and don't knowingly collect information from children under 13. If you believe we have, email <a href="mailto:privacy@builtdirty.com">privacy@builtdirty.com</a> and we'll delete it.</p>
+
+    <h2>8. Retention</h2>
+    <p>Email correspondence: retained while the conversation is active, then archived. Active business records (intake responses, engagement letters, invoices): retained 7 years for IRS and Alabama tax compliance, then deleted. Web server logs: retained ~30 days by Cloudflare for abuse and security purposes; we don't access them routinely.</p>
+
+    <h2>9. International users</h2>
+    <p>Built Dirty operates from the United States. If you're contacting us from outside the U.S., your information will be transferred to and processed in the U.S. By engaging with us, you consent to that transfer.</p>
+
+    <h2>10. Changes to this policy</h2>
+    <p>If we make a material change, we'll update the "Effective" date at the top and email any active clients. The most current version is always at <a href="https://builtdirty.com/privacy">builtdirty.com/privacy</a>.</p>
+
+    <h2>11. Contact</h2>
+    <p>Privacy questions: <a href="mailto:privacy@builtdirty.com">privacy@builtdirty.com</a><br>
+    General contact: <a href="mailto:contact@builtdirty.com">contact@builtdirty.com</a><br>
+    Mailing address: available on request by emailing <a href="mailto:contact@builtdirty.com">contact@builtdirty.com</a>.</p>
+
+    <p class="disclaimer">Built Dirty is a brand of Domus Antonia Lux LLC. We are not a law firm. Documents we deliver to clients are templates, not legal advice. Have an attorney licensed in your jurisdiction review before publication.</p>
+  </article>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/accessibility">Accessibility</a>
+      <a href="mailto:contact@builtdirty.com">Contact</a>
+    </div>
+    <div class="copy">© <span id="year">2026</span> Domus Antonia Lux LLC · builtdirty.com</div>
+  </footer>
+
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
